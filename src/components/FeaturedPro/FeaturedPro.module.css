@@ -44,6 +44,14 @@
 
 .info {}
 
+.name {
+    font-family: var(--font-heading);
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 2px;
+}
+
 .title {
     font-size: 0.9rem;
     color: var(--gold);

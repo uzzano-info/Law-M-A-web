@@ -29,7 +29,7 @@ export default function Footer() {
                         <span className={styles.logoText}>Lex & Sterling</span>
                     </div>
                     <p className={styles.brandDesc}>
-                        Securing Corporate Futures. A premier law firm specializing in M&A, corporate governance, and enterprise risk management.
+                        Securing Corporate Futures. Defending Enterprise Value. A premier law firm specializing in M&A and preemptive corporate risk management.
                     </p>
                 </div>
 
@@ -57,7 +57,7 @@ export default function Footer() {
 
             <div className={styles.bottom}>
                 <div className="container">
-                    <p className={styles.copy}>© {new Date().getFullYear()} Lex & Sterling LLP. All rights reserved. Attorney Advertising. Legal Disclaimer: This website does not constitute legal advice.</p>
+                    <p className={styles.copy}>© {new Date().getFullYear()} Lex & Sterling LLP. All rights reserved. Attorney Advertising. Privacy Policy · Terms of Use · Legal Disclaimer.</p>
                 </div>
             </div>
         </footer>

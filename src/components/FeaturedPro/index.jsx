@@ -31,12 +31,13 @@ export default function FeaturedPro() {
                     <div className={styles.info}>
                         <span className="section-label">Featured Professional</span>
                         <h2 className="section-headline">
-                            {lead.name}
+                            Decades of <em>Strategic Legal Counsel</em>
                         </h2>
+                        <p className={styles.name}>{lead.name}</p>
                         <p className={styles.title}>{lead.title} · {lead.role}</p>
                         <div className="gold-divider" />
                         <p className={styles.quote}>
-                            "Decades of navigating high-stakes corporate transitions have taught us one truth: great deals are built on trust, precision, and relentless preparation."
+                            "In modern corporate law, reacting is not enough. We engineer legal strategies that anticipate market shifts and neutralize risks before they materialize."
                         </p>
                         <p className={styles.bio}>{lead.bio}</p>
 
@@ -47,7 +48,7 @@ export default function FeaturedPro() {
                         </div>
 
                         <a href="#team" className="btn-outline" onClick={(e) => scrollTo(e, '#team')} style={{ marginTop: 8 }}>
-                            View Full Profile →
+                            View Full Partner Profile →
                         </a>
                     </div>
                 </motion.div>

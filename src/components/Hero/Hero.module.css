@@ -42,7 +42,7 @@
     font-size: 1.15rem;
     line-height: 1.8;
     color: var(--text-secondary);
-    max-width: 560px;
+    max-width: 600px;
     white-space: pre-line;
     margin-bottom: 40px;
 }
@@ -65,22 +65,34 @@
 .trustInner {
     display: flex;
     align-items: center;
+    justify-content: space-between;
     gap: 48px;
     padding: 32px 24px;
 }
 
-.trustLabel {
-    font-size: 0.7rem;
+.trustCopy {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    max-width: 400px;
+}
+
+.trustHeading {
+    font-family: var(--font-heading);
+    font-size: 1.1rem;
     font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.15em;
-    color: var(--text-muted);
-    white-space: nowrap;
+    color: var(--gold);
+}
+
+.trustSub {
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
 }
 
 .trustStats {
     display: flex;
-    gap: 48px;
+    gap: 40px;
     flex-wrap: wrap;
 }
 
@@ -142,12 +154,12 @@
 
     .trustInner {
         flex-direction: column;
-        gap: 20px;
+        gap: 24px;
         align-items: flex-start;
     }
 
     .trustStats {
-        gap: 32px;
+        gap: 28px;
     }
 }
 
@@ -178,5 +190,9 @@
 
     .ctas a {
         text-align: center;
+    }
+
+    .trustHeading {
+        font-size: 1rem;
     }
 }

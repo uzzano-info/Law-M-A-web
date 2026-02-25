@@ -5,7 +5,7 @@ const links = [
     { href: '#expertise', label: 'Expertise' },
     { href: '#team', label: 'Professionals' },
     { href: '#insights', label: 'Insights' },
-    { href: '#contact', label: 'About Firm' },
+    { href: '#contact', label: 'About' },
 ]
 
 export default function Header() {
@@ -45,7 +45,7 @@ export default function Header() {
                         </a>
                     ))}
                     <a href="#contact" className="btn-gold" onClick={(e) => handleNavClick(e, '#contact')} style={{ padding: '10px 24px', fontSize: '0.8rem' }}>
-                        Request Consultation
+                        Request Confidential Briefing
                     </a>
                 </nav>
 
@@ -69,7 +69,7 @@ export default function Header() {
                         </a>
                     ))}
                     <a href="#contact" className="btn-gold" onClick={(e) => handleNavClick(e, '#contact')} style={{ marginTop: 16 }}>
-                        Request Consultation
+                        Request Confidential Briefing
                     </a>
                 </nav>
             </div>

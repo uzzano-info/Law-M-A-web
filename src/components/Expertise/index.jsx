@@ -17,10 +17,10 @@ export default function Expertise() {
                 <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true, margin: '-80px' }}>
                     <span className="section-label">Practice Areas</span>
                     <h2 className="section-headline" style={{ color: 'var(--text-dark)' }}>
-                        Focused Expertise in{'\n'}<em>Corporate Law & M&A</em>
+                        Targeted Expertise for{' '}<em>Corporate Entities</em>
                     </h2>
                     <p className="section-subtext" style={{ color: 'var(--text-dark-secondary)' }}>
-                        Four interconnected practice areas designed to protect and enhance enterprise value at every stage of the corporate lifecycle.
+                        Comprehensive, forward-looking legal strategies tailored specifically for the boardroom.
                     </p>
                 </motion.div>
 
@@ -41,11 +41,14 @@ export default function Expertise() {
                             <p className={styles.cardSub}>{area.subtitle}</p>
                             <p className={styles.cardDesc}>{area.description}</p>
                             {expanded === area.id && (
-                                <ul className={styles.highlights}>
-                                    {area.highlights.map((h) => (
-                                        <li key={h}>✦ {h}</li>
-                                    ))}
-                                </ul>
+                                <>
+                                    <p className={styles.cardLong}>{area.longDescription}</p>
+                                    <ul className={styles.highlights}>
+                                        {area.highlights.map((h) => (
+                                            <li key={h}>✦ {h}</li>
+                                        ))}
+                                    </ul>
+                                </>
                             )}
                             <span className={styles.expand}>{expanded === area.id ? '− Collapse' : '+ Learn More'}</span>
                         </motion.div>

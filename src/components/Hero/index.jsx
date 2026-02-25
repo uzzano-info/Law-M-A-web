@@ -6,13 +6,6 @@ const fadeUp = {
     visible: (i) => ({ opacity: 1, y: 0, transition: { delay: i * 0.15, duration: 0.7, ease: [0.16, 1, 0.3, 1] } }),
 }
 
-const stats = [
-    { value: '$12B+', label: 'Aggregate Deal Value' },
-    { value: '350+', label: 'Transactions Closed' },
-    { value: '25+', label: 'Years of Practice' },
-    { value: '15', label: 'Jurisdictions' },
-]
-
 export default function Hero() {
     const scrollTo = (e, target) => {
         e.preventDefault()
@@ -27,23 +20,24 @@ export default function Hero() {
                     className="section-label"
                     variants={fadeUp} initial="hidden" animate="visible" custom={0}
                 >
-                    Corporate Legal Excellence Since 2001
+                    Premium M&A and Corporate Risk Advisory
                 </motion.span>
 
                 <motion.h1
                     className={styles.headline}
                     variants={fadeUp} initial="hidden" animate="visible" custom={1}
                 >
-                    Strategic Legal Counsel for{'\n'}
-                    <em>Complex Corporate Transactions</em>
+                    Mastering Complexity.{'\n'}
+                    <em>Securing Corporate Futures.</em>
                 </motion.h1>
 
                 <motion.p
                     className={styles.sub}
                     variants={fadeUp} initial="hidden" animate="visible" custom={2}
                 >
-                    Specializing in M&A, Corporate Governance, and{'\n'}
-                    Preemptive Risk Management for industry leaders.
+                    Unparalleled legal precision for high-stakes Mergers & Acquisitions{'\n'}
+                    and preemptive corporate risk management.{'\n'}
+                    We navigate the legal intricacies so you can focus on market leadership.
                 </motion.p>
 
                 <motion.div
@@ -59,20 +53,33 @@ export default function Hero() {
                 </motion.div>
             </div>
 
-            {/* Trust Bar */}
+            {/* Trust Indicators */}
             <motion.div
                 className={styles.trustBar}
                 variants={fadeUp} initial="hidden" animate="visible" custom={5}
             >
                 <div className={`container ${styles.trustInner}`}>
-                    <span className={styles.trustLabel}>Trusted by Industry Leaders</span>
+                    <div className={styles.trustCopy}>
+                        <span className={styles.trustHeading}>Advised on over $5B+ in Corporate Transactions</span>
+                        <span className={styles.trustSub}>Trusted counsel for industry-leading enterprises, board members, and disruptive founders.</span>
+                    </div>
                     <div className={styles.trustStats}>
-                        {stats.map((s) => (
-                            <div key={s.label} className={styles.stat}>
-                                <span className={styles.statValue}>{s.value}</span>
-                                <span className={styles.statLabel}>{s.label}</span>
-                            </div>
-                        ))}
+                        <div className={styles.stat}>
+                            <span className={styles.statValue}>$5B+</span>
+                            <span className={styles.statLabel}>Transactions Advised</span>
+                        </div>
+                        <div className={styles.stat}>
+                            <span className={styles.statValue}>350+</span>
+                            <span className={styles.statLabel}>Matters Closed</span>
+                        </div>
+                        <div className={styles.stat}>
+                            <span className={styles.statValue}>25+</span>
+                            <span className={styles.statLabel}>Years of Practice</span>
+                        </div>
+                        <div className={styles.stat}>
+                            <span className={styles.statValue}>15</span>
+                            <span className={styles.statLabel}>Jurisdictions</span>
+                        </div>
                     </div>
                 </div>
             </motion.div>

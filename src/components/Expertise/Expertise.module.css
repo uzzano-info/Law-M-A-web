@@ -52,6 +52,15 @@
     color: var(--text-dark-secondary);
 }
 
+.cardLong {
+    font-size: 0.9rem;
+    line-height: 1.7;
+    color: var(--text-dark-secondary);
+    margin-top: 16px;
+    padding-top: 16px;
+    border-top: 1px solid rgba(0, 0, 0, 0.06);
+}
+
 .highlights {
     margin-top: 20px;
     display: flex;
