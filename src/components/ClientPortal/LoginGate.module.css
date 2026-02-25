@@ -1,0 +1,179 @@
+.overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(4px);
+    padding: 20px;
+}
+
+.modal {
+    position: relative;
+    width: 100%;
+    max-width: 420px;
+    background: var(--bg-card);
+    border: 1px solid var(--border-gold);
+    border-radius: var(--radius-md);
+    padding: 40px;
+    text-align: center;
+}
+
+.closeBtn {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-muted);
+    font-size: 1rem;
+    border-radius: 50%;
+    transition: all var(--ease-fast);
+}
+
+.closeBtn:hover {
+    color: var(--text-primary);
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.lockIcon {
+    font-size: 2.4rem;
+    margin-bottom: 12px;
+}
+
+.title {
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+.subtitle {
+    font-size: 0.85rem;
+    color: var(--gold);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-top: 4px;
+}
+
+/* Form */
+.field {
+    margin-bottom: 16px;
+    text-align: left;
+}
+
+.label {
+    display: block;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 6px;
+}
+
+.input {
+    width: 100%;
+    padding: 14px 16px;
+    border-radius: var(--radius-sm);
+    border: 1px solid var(--border-dark);
+    background: var(--bg-darker);
+    color: var(--text-primary);
+    font-size: 0.95rem;
+    transition: border-color var(--ease-fast);
+}
+
+.input:focus {
+    border-color: var(--gold);
+    outline: none;
+}
+
+.error {
+    font-size: 0.8rem;
+    color: #e74c3c;
+    text-align: left;
+    margin-top: 8px;
+}
+
+.mfaInfo {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.backLink {
+    display: block;
+    width: 100%;
+    text-align: center;
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+    margin-top: 12px;
+    padding: 8px;
+    transition: color var(--ease-fast);
+}
+
+.backLink:hover {
+    color: var(--gold);
+}
+
+/* SSO */
+.ssoSection {
+    margin-top: 24px;
+}
+
+.dividerRow {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 16px;
+}
+
+.dividerLine {
+    flex: 1;
+    height: 1px;
+    background: var(--border-dark);
+}
+
+.dividerText {
+    font-size: 0.7rem;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+}
+
+.ssoBtn {
+    width: 100%;
+    padding: 12px;
+    border-radius: var(--radius-sm);
+    border: 1px solid var(--border-dark);
+    background: transparent;
+    color: var(--text-secondary);
+    font-size: 0.85rem;
+    font-weight: 500;
+    transition: all var(--ease-fast);
+    cursor: pointer;
+}
+
+.ssoBtn:hover {
+    border-color: var(--gold);
+    color: var(--gold);
+}
+
+/* Security */
+.secNote {
+    font-size: 0.65rem;
+    color: var(--text-muted);
+    margin-top: 24px;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+}
+
+@media (max-width: 480px) {
+    .modal {
+        padding: 28px 20px;
+    }
+}

@@ -1,0 +1,163 @@
+/* ── Table (Desktop) ── */
+.tableWrap {
+    margin-top: 48px;
+    overflow-x: auto;
+    border-radius: var(--radius-md);
+    border: 1px solid var(--border-dark);
+    background: rgba(11, 17, 32, 0.5);
+    /* Scroll shadow indicators */
+    background-image:
+        linear-gradient(to right, var(--bg-navy), transparent 30px),
+        linear-gradient(to left, var(--bg-navy), transparent 30px);
+    background-attachment: local, local;
+}
+
+.table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 700px;
+}
+
+.th {
+    text-align: left;
+    padding: 16px 20px;
+    font-size: 0.7rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--gold);
+    border-bottom: 1px solid var(--border-dark);
+    cursor: pointer;
+    user-select: none;
+    white-space: nowrap;
+    transition: background var(--ease-fast);
+}
+
+.th:hover {
+    background: rgba(201, 168, 76, 0.06);
+}
+
+.sortArrow {
+    font-size: 0.65rem;
+}
+
+.tr {
+    transition: background var(--ease-fast);
+}
+
+.tr:hover {
+    background: rgba(201, 168, 76, 0.04);
+}
+
+.tr td {
+    padding: 16px 20px;
+    font-size: 0.9rem;
+    border-bottom: 1px solid var(--border-dark);
+    color: var(--text-secondary);
+}
+
+.tdPrimary {
+    color: var(--text-primary);
+    font-weight: 500;
+    min-width: 240px;
+}
+
+.tdValue {
+    color: var(--gold);
+    font-family: var(--font-heading);
+    font-weight: 600;
+    font-size: 1rem;
+}
+
+/* Status badges */
+.status {
+    display: inline-block;
+    padding: 4px 12px;
+    border-radius: 999px;
+    font-size: 0.7rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+}
+
+.completed {
+    background: rgba(46, 204, 113, 0.15);
+    color: #2ecc71;
+}
+
+.ongoing {
+    background: var(--gold-glow);
+    color: var(--gold);
+}
+
+/* ── Accordion (Mobile) ── */
+.accordion {
+    margin-top: 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.accordionItem {
+    border: 1px solid var(--border-dark);
+    border-radius: var(--radius-sm);
+    background: var(--bg-card);
+    overflow: hidden;
+    cursor: pointer;
+    transition: border-color var(--ease-fast);
+}
+
+.accordionItem:hover,
+.open {
+    border-color: var(--border-gold);
+}
+
+.accordionHeader {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 20px;
+    gap: 16px;
+}
+
+.dealName {
+    display: block;
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--text-primary);
+    margin-bottom: 4px;
+}
+
+.dealValue {
+    font-family: var(--font-heading);
+    font-size: 1rem;
+    color: var(--gold);
+    font-weight: 600;
+}
+
+.chevron {
+    font-size: 1.2rem;
+    color: var(--gold);
+    min-width: 24px;
+    text-align: center;
+}
+
+.accordionBody {
+    padding: 0 20px 16px;
+}
+
+.row {
+    display: flex;
+    justify-content: space-between;
+    padding: 8px 0;
+    border-top: 1px solid var(--border-dark);
+    font-size: 0.85rem;
+}
+
+.row span:first-child {
+    color: var(--text-muted);
+}
+
+.row span:last-child {
+    color: var(--text-primary);
+}

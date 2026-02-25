@@ -1,9 +1,49 @@
+import { useEffect, useRef } from 'react'
 import { motion } from 'framer-motion'
 import styles from './Hero.module.css'
 
 const fadeUp = {
     hidden: { opacity: 0, y: 30 },
     visible: (i) => ({ opacity: 1, y: 0, transition: { delay: i * 0.15, duration: 0.7, ease: [0.16, 1, 0.3, 1] } }),
+}
+
+function AmbientCanvas() {
+    const canvasRef = useRef(null)
+    useEffect(() => {
+        const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+        if (prefersReduced || window.innerWidth < 1024) return
+        const canvas = canvasRef.current
+        if (!canvas) return
+        const ctx = canvas.getContext('2d')
+        let raf
+        const particles = Array.from({ length: 40 }, () => ({
+            x: Math.random() * canvas.width,
+            y: Math.random() * canvas.height,
+            r: Math.random() * 2 + 0.5,
+            vx: (Math.random() - 0.5) * 0.3,
+            vy: (Math.random() - 0.5) * 0.2,
+            alpha: Math.random() * 0.4 + 0.1,
+        }))
+        const resize = () => { canvas.width = canvas.offsetWidth; canvas.height = canvas.offsetHeight }
+        resize()
+        window.addEventListener('resize', resize)
+        const draw = () => {
+            ctx.clearRect(0, 0, canvas.width, canvas.height)
+            for (const p of particles) {
+                p.x += p.vx; p.y += p.vy
+                if (p.x < 0 || p.x > canvas.width) p.vx *= -1
+                if (p.y < 0 || p.y > canvas.height) p.vy *= -1
+                ctx.beginPath()
+                ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2)
+                ctx.fillStyle = `rgba(201, 168, 76, ${p.alpha})`
+                ctx.fill()
+            }
+            raf = requestAnimationFrame(draw)
+        }
+        draw()
+        return () => { cancelAnimationFrame(raf); window.removeEventListener('resize', resize) }
+    }, [])
+    return <canvas ref={canvasRef} className={styles.bgCanvas} aria-hidden="true" />
 }
 
 export default function Hero() {
@@ -15,6 +55,7 @@ export default function Hero() {
     return (
         <section className={styles.hero} id="hero">
             <div className={styles.bgOverlay} />
+            <AmbientCanvas />
             <div className={`container ${styles.content}`}>
                 <motion.span
                     className="section-label"
@@ -44,7 +85,7 @@ export default function Hero() {
                     className={styles.ctas}
                     variants={fadeUp} initial="hidden" animate="visible" custom={3}
                 >
-                    <a href="#contact" className="btn-gold" onClick={(e) => scrollTo(e, '#contact')}>
+                    <a href="#intake" className="btn-gold" onClick={(e) => scrollTo(e, '#intake')}>
                         Schedule a Confidential Briefing
                     </a>
                     <a href="#expertise" className="btn-outline" onClick={(e) => scrollTo(e, '#expertise')}>

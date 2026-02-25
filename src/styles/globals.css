@@ -347,3 +347,42 @@ ol {
 ::-webkit-scrollbar-thumb:hover {
     background: var(--gold-muted);
 }
+
+/* ── WCAG: Reduced Motion ── */
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
+
+/* ── Wide-Screen Typography ── */
+@media (min-width: 1440px) {
+    .container {
+        max-width: 1320px;
+    }
+
+    .section-headline {
+        font-size: 3.2rem;
+    }
+
+    .section-subtext {
+        max-width: 680px;
+    }
+}
+
+/* ── Desktop Hover States ── */
+@media (hover: hover) and (min-width: 1024px) {
+    .btn-gold:hover {
+        transform: translateY(-2px);
+    }
+
+    .btn-outline:hover {
+        transform: translateY(-1px);
+    }
+}

@@ -126,6 +126,47 @@
     letter-spacing: 0.08em;
 }
 
+/* ── Portal Link ── */
+.portalLink {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: var(--text-secondary);
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+    padding: 8px 16px;
+    border-radius: var(--radius-sm);
+    border: 1px solid var(--border-dark);
+    background: transparent;
+    cursor: pointer;
+    transition: all var(--ease-fast);
+}
+
+.portalLink:hover {
+    border-color: var(--gold);
+    color: var(--gold);
+}
+
+.portalLinkMobile {
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--gold);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 12px 24px;
+    min-height: 48px;
+    transition: opacity var(--ease-fast);
+}
+
+.portalLinkMobile:hover {
+    opacity: 0.8;
+}
+
 @media (max-width: 768px) {
     .nav {
         display: none;
@@ -133,5 +174,11 @@
 
     .hamburger {
         display: flex;
+    }
+
+    .mobileNav a {
+        min-height: 48px;
+        display: flex;
+        align-items: center;
     }
 }

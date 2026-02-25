@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import styles from './Header.module.css'
+import LoginGate from '../ClientPortal/LoginGate'
 
 const links = [
     { href: '#expertise', label: 'Expertise' },
@@ -11,6 +12,7 @@ const links = [
 export default function Header() {
     const [scrolled, setScrolled] = useState(false)
     const [mobileOpen, setMobileOpen] = useState(false)
+    const [portalOpen, setPortalOpen] = useState(false)
 
     useEffect(() => {
         const onScroll = () => setScrolled(window.scrollY > 40)
@@ -26,53 +28,64 @@ export default function Header() {
     }
 
     return (
-        <header className={`${styles.header} ${scrolled ? styles.scrolled : ''}`}>
-            <div className={`container ${styles.inner}`}>
-                <a
-                    href="#"
-                    className={styles.logo}
-                    onClick={(e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }) }}
-                    aria-label="Back to top"
-                >
-                    <span className={styles.logoIcon}>⚖</span>
-                    <span className={styles.logoText}>Lex & Sterling</span>
-                </a>
-
-                <nav className={styles.nav} aria-label="Main navigation">
-                    {links.map((l) => (
-                        <a key={l.href} href={l.href} onClick={(e) => handleNavClick(e, l.href)}>
-                            {l.label}
-                        </a>
-                    ))}
-                    <a href="#contact" className="btn-gold" onClick={(e) => handleNavClick(e, '#contact')} style={{ padding: '10px 24px', fontSize: '0.8rem' }}>
-                        Request Confidential Briefing
+        <>
+            <header className={`${styles.header} ${scrolled ? styles.scrolled : ''}`}>
+                <div className={`container ${styles.inner}`}>
+                    <a
+                        href="#"
+                        className={styles.logo}
+                        onClick={(e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }) }}
+                        aria-label="Back to top"
+                    >
+                        <span className={styles.logoIcon}>⚖</span>
+                        <span className={styles.logoText}>Lex & Sterling</span>
                     </a>
-                </nav>
 
-                <button
-                    className={styles.hamburger}
-                    onClick={() => setMobileOpen(!mobileOpen)}
-                    aria-label={mobileOpen ? 'Close menu' : 'Open menu'}
-                    aria-expanded={mobileOpen}
-                >
-                    <span className={`${styles.bar} ${mobileOpen ? styles.barOpen : ''}`} />
-                    <span className={`${styles.bar} ${mobileOpen ? styles.barOpen : ''}`} />
-                    <span className={`${styles.bar} ${mobileOpen ? styles.barOpen : ''}`} />
-                </button>
-            </div>
-
-            <div className={`${styles.mobileOverlay} ${mobileOpen ? styles.open : ''}`}>
-                <nav className={styles.mobileNav} aria-label="Mobile navigation">
-                    {links.map((l) => (
-                        <a key={l.href} href={l.href} onClick={(e) => handleNavClick(e, l.href)}>
-                            {l.label}
+                    <nav className={styles.nav} aria-label="Main navigation">
+                        {links.map((l) => (
+                            <a key={l.href} href={l.href} onClick={(e) => handleNavClick(e, l.href)}>
+                                {l.label}
+                            </a>
+                        ))}
+                        <button className={styles.portalLink} onClick={() => setPortalOpen(true)} aria-label="Client Portal Login">
+                            <span>🔐</span>
+                            <span>Client Portal</span>
+                        </button>
+                        <a href="#intake" className="btn-gold" onClick={(e) => handleNavClick(e, '#intake')} style={{ padding: '10px 24px', fontSize: '0.8rem' }}>
+                            Request Confidential Briefing
                         </a>
-                    ))}
-                    <a href="#contact" className="btn-gold" onClick={(e) => handleNavClick(e, '#contact')} style={{ marginTop: 16 }}>
-                        Request Confidential Briefing
-                    </a>
-                </nav>
-            </div>
-        </header>
+                    </nav>
+
+                    <button
+                        className={styles.hamburger}
+                        onClick={() => setMobileOpen(!mobileOpen)}
+                        aria-label={mobileOpen ? 'Close menu' : 'Open menu'}
+                        aria-expanded={mobileOpen}
+                    >
+                        <span className={`${styles.bar} ${mobileOpen ? styles.barOpen : ''}`} />
+                        <span className={`${styles.bar} ${mobileOpen ? styles.barOpen : ''}`} />
+                        <span className={`${styles.bar} ${mobileOpen ? styles.barOpen : ''}`} />
+                    </button>
+                </div>
+
+                <div className={`${styles.mobileOverlay} ${mobileOpen ? styles.open : ''}`}>
+                    <nav className={styles.mobileNav} aria-label="Mobile navigation">
+                        {links.map((l) => (
+                            <a key={l.href} href={l.href} onClick={(e) => handleNavClick(e, l.href)}>
+                                {l.label}
+                            </a>
+                        ))}
+                        <button className={styles.portalLinkMobile} onClick={() => { setMobileOpen(false); setPortalOpen(true) }}>
+                            🔐 Client Portal
+                        </button>
+                        <a href="#intake" className="btn-gold" onClick={(e) => handleNavClick(e, '#intake')} style={{ marginTop: 16 }}>
+                            Request Confidential Briefing
+                        </a>
+                    </nav>
+                </div>
+            </header>
+
+            <LoginGate isOpen={portalOpen} onClose={() => setPortalOpen(false)} />
+        </>
     )
 }
