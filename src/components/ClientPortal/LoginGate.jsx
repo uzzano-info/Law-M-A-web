@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import styles from './LoginGate.module.css'
 
@@ -8,6 +8,31 @@ export default function LoginGate({ isOpen, onClose }) {
     const [step, setStep] = useState(0) // 0 = email, 1 = MFA
     const [loading, setLoading] = useState(false)
     const [error, setError] = useState(null)
+    const modalRef = useRef(null)
+
+    // Escape key handler
+    useEffect(() => {
+        if (!isOpen) return
+        const handleKey = (e) => { if (e.key === 'Escape') handleClose() }
+        document.addEventListener('keydown', handleKey)
+        return () => document.removeEventListener('keydown', handleKey)
+    }, [isOpen])
+
+    // Focus trap
+    useEffect(() => {
+        if (!isOpen || !modalRef.current) return
+        const modal = modalRef.current
+        const focusable = modal.querySelectorAll('button, input, [tabindex]:not([tabindex="-1"])')
+        if (focusable.length) focusable[0].focus()
+        const trapFocus = (e) => {
+            if (e.key !== 'Tab' || !focusable.length) return
+            const first = focusable[0], last = focusable[focusable.length - 1]
+            if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus() }
+            else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus() }
+        }
+        modal.addEventListener('keydown', trapFocus)
+        return () => modal.removeEventListener('keydown', trapFocus)
+    }, [isOpen, step])
 
     const handleEmail = async (e) => {
         e.preventDefault()
@@ -40,6 +65,7 @@ export default function LoginGate({ isOpen, onClose }) {
             {isOpen && (
                 <motion.div className={styles.overlay} initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} onClick={handleClose}>
                     <motion.div
+                        ref={modalRef}
                         className={styles.modal}
                         initial={{ opacity: 0, y: 40, scale: 0.96 }}
                         animate={{ opacity: 1, y: 0, scale: 1 }}

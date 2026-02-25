@@ -53,6 +53,14 @@
     border-color: var(--border-gold);
 }
 
+@media (hover: hover) and (min-width: 1024px) {
+    .card:hover {
+        transform: translateY(-6px);
+        box-shadow: 0 16px 48px rgba(0, 0, 0, 0.2);
+        border-color: var(--gold);
+    }
+}
+
 .category {
     display: inline-block;
     font-size: 0.7rem;
@@ -130,5 +138,7 @@
 
     .card {
         padding: 24px;
+        -webkit-tap-highlight-color: transparent;
+        touch-action: manipulation;
     }
 }

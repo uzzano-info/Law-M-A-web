@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import useIntakeForm from './useIntakeForm'
 import styles from './SecureIntake.module.css'
@@ -186,6 +187,25 @@ function StepMatter({ form, errors, set }) {
 
 function StepBrief({ form, errors, set }) {
     const charCount = form.message.trim().length
+    const [file, setFile] = useState(null)
+    const [fileError, setFileError] = useState(null)
+    const [dragOver, setDragOver] = useState(false)
+
+    const ACCEPTED_TYPES = ['application/pdf', 'application/vnd.openxmlformats-officedocument.wordprocessingml.document']
+    const MAX_SIZE = 10 * 1024 * 1024 // 10MB
+
+    const handleFile = (f) => {
+        setFileError(null)
+        if (!ACCEPTED_TYPES.includes(f.type)) { setFileError('Only .pdf and .docx files are accepted.'); return }
+        if (f.size > MAX_SIZE) { setFileError('File size must be under 10MB.'); return }
+        setFile(f)
+    }
+
+    const onDrop = (e) => {
+        e.preventDefault(); setDragOver(false)
+        if (e.dataTransfer.files[0]) handleFile(e.dataTransfer.files[0])
+    }
+
     return (
         <div className={styles.stepContent}>
             <h3 className={styles.stepTitle}>Step 3 — Confidential Brief</h3>
@@ -203,6 +223,52 @@ function StepBrief({ form, errors, set }) {
                     <span className={charCount >= 50 ? styles.charOk : ''}>{charCount}</span> / 50 min
                 </div>
                 {errors.message && <span className={styles.error}>{errors.message}</span>}
+            </div>
+
+            {/* Document Upload */}
+            <div className={styles.field}>
+                <label className={styles.label}>Supporting Document (Optional)</label>
+                <div
+                    className={`${styles.dropZone} ${dragOver ? styles.dropZoneActive : ''} ${file ? styles.dropZoneHasFile : ''}`}
+                    onDragOver={(e) => { e.preventDefault(); setDragOver(true) }}
+                    onDragLeave={() => setDragOver(false)}
+                    onDrop={onDrop}
+                    onClick={() => document.getElementById('intake-file-input').click()}
+                    role="button"
+                    tabIndex={0}
+                    aria-label="Upload document"
+                    onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') document.getElementById('intake-file-input').click() }}
+                >
+                    <input
+                        id="intake-file-input"
+                        type="file"
+                        accept=".pdf,.docx"
+                        style={{ display: 'none' }}
+                        onChange={(e) => { if (e.target.files[0]) handleFile(e.target.files[0]) }}
+                    />
+                    {file ? (
+                        <div className={styles.filePreview}>
+                            <span>📄</span>
+                            <div>
+                                <span className={styles.fileName}>{file.name}</span>
+                                <span className={styles.fileSize}>{(file.size / 1024 / 1024).toFixed(2)} MB</span>
+                            </div>
+                            <button
+                                type="button"
+                                className={styles.fileRemove}
+                                onClick={(e) => { e.stopPropagation(); setFile(null) }}
+                                aria-label="Remove file"
+                            >✕</button>
+                        </div>
+                    ) : (
+                        <div className={styles.dropZoneContent}>
+                            <span style={{ fontSize: '1.5rem' }}>📎</span>
+                            <span>Drag & drop or click to upload</span>
+                            <span className={styles.dropZoneHint}>.pdf or .docx · Max 10MB</span>
+                        </div>
+                    )}
+                </div>
+                {fileError && <span className={styles.error}>{fileError}</span>}
             </div>
 
             <label className={`${styles.disclaimerLabel} ${errors.disclaimer ? styles.disclaimerError : ''}`}>

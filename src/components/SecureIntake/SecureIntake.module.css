@@ -249,6 +249,91 @@
     border-color: #e74c3c;
 }
 
+/* ── Drop Zone ── */
+.dropZone {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+    border-radius: var(--radius-sm);
+    border: 2px dashed var(--border-dark);
+    background: var(--bg-darker);
+    cursor: pointer;
+    transition: all var(--ease-fast);
+    min-height: 80px;
+}
+
+.dropZone:hover,
+.dropZoneActive {
+    border-color: var(--gold);
+    background: rgba(201, 168, 76, 0.04);
+}
+
+.dropZoneHasFile {
+    border-style: solid;
+    border-color: var(--border-gold);
+}
+
+.dropZoneContent {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+}
+
+.dropZoneHint {
+    font-size: 0.7rem;
+    color: var(--text-muted);
+}
+
+.filePreview {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    width: 100%;
+    font-size: 1.3rem;
+}
+
+.filePreview>div {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.fileName {
+    font-size: 0.85rem;
+    color: var(--text-primary);
+    font-weight: 500;
+}
+
+.fileSize {
+    font-size: 0.7rem;
+    color: var(--text-muted);
+    margin-top: 2px;
+}
+
+.fileRemove {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    border: 1px solid var(--border-dark);
+    background: transparent;
+    cursor: pointer;
+    transition: all var(--ease-fast);
+}
+
+.fileRemove:hover {
+    border-color: #e74c3c;
+    color: #e74c3c;
+}
+
 /* ── Navigation ── */
 .nav {
     display: flex;

@@ -15,8 +15,20 @@
 
 .card:hover {
     border-color: var(--border-gold);
-    box-shadow: var(--shadow-gold);
-    transform: translateY(-4px);
+}
+
+/* Desktop-only rich hover */
+@media (hover: hover) and (min-width: 1024px) {
+    .card:hover {
+        transform: translateY(-8px) scale(1.02);
+        box-shadow: 0 20px 60px rgba(201, 168, 76, 0.15);
+        border-color: var(--gold);
+    }
+
+    .card:hover .avatar {
+        transform: scale(1.08);
+        transition: transform var(--ease-normal);
+    }
 }
 
 .avatarWrap {
@@ -158,5 +170,11 @@
 
     .info {
         padding: 20px 24px 28px;
+    }
+
+    .card {
+        min-height: 64px;
+        -webkit-tap-highlight-color: transparent;
+        touch-action: manipulation;
     }
 }

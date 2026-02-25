@@ -91,5 +91,8 @@
 
     .card {
         padding: 28px;
+        min-height: 64px;
+        -webkit-tap-highlight-color: transparent;
+        touch-action: manipulation;
     }
 }
