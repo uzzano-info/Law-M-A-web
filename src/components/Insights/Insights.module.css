@@ -1,0 +1,134 @@
+.filters {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin: 40px 0 32px;
+}
+
+.filterBtn {
+    padding: 8px 20px;
+    font-size: 0.8rem;
+    font-weight: 500;
+    border-radius: 999px;
+    color: var(--text-secondary);
+    background: transparent;
+    border: 1px solid var(--border-dark);
+    transition: all var(--ease-fast);
+    cursor: pointer;
+    letter-spacing: 0.03em;
+}
+
+.filterBtn:hover {
+    border-color: var(--gold);
+    color: var(--gold);
+}
+
+.filterActive {
+    background: var(--gold);
+    color: var(--bg-dark);
+    border-color: var(--gold);
+    font-weight: 600;
+}
+
+.filterActive:hover {
+    background: var(--gold-hover);
+    color: var(--bg-dark);
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+}
+
+.card {
+    padding: 32px;
+    border-radius: var(--radius-md);
+    background: var(--bg-card);
+    border: 1px solid var(--border-dark);
+    transition: all var(--ease-normal);
+}
+
+.card:hover {
+    border-color: var(--border-gold);
+}
+
+.category {
+    display: inline-block;
+    font-size: 0.7rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--gold);
+    margin-bottom: 12px;
+    padding: 4px 12px;
+    background: var(--gold-glow);
+    border-radius: 999px;
+}
+
+.title {
+    font-family: var(--font-heading);
+    font-size: 1.2rem;
+    font-weight: 600;
+    line-height: 1.4;
+    margin-bottom: 12px;
+    color: var(--text-primary);
+}
+
+.meta {
+    display: flex;
+    gap: 8px;
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    margin-bottom: 16px;
+}
+
+.excerpt {
+    font-size: 0.9rem;
+    line-height: 1.7;
+    color: var(--text-secondary);
+}
+
+.body {
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 1px solid var(--border-dark);
+}
+
+.body p {
+    font-size: 0.9rem;
+    line-height: 1.8;
+    color: var(--text-secondary);
+    margin-bottom: 16px;
+}
+
+.body p:last-child {
+    margin-bottom: 0;
+}
+
+.readMore {
+    display: inline-block;
+    margin-top: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--gold);
+    cursor: pointer;
+    letter-spacing: 0.03em;
+    background: none;
+    border: none;
+    padding: 0;
+}
+
+.readMore:hover {
+    color: var(--gold-hover);
+}
+
+@media (max-width: 768px) {
+    .grid {
+        grid-template-columns: 1fr;
+    }
+
+    .card {
+        padding: 24px;
+    }
+}

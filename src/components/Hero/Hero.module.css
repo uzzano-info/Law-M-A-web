@@ -1,0 +1,182 @@
+.hero {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.bgOverlay {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    background:
+        radial-gradient(ellipse 80% 60% at 20% 80%, rgba(201, 168, 76, 0.06) 0%, transparent 60%),
+        radial-gradient(ellipse 60% 50% at 80% 20%, rgba(16, 27, 48, 0.8) 0%, transparent 60%),
+        var(--bg-darker);
+}
+
+.content {
+    position: relative;
+    z-index: 1;
+    padding: 140px 0 60px;
+}
+
+.headline {
+    font-family: var(--font-heading);
+    font-size: 3.6rem;
+    font-weight: 600;
+    line-height: 1.2;
+    margin-bottom: 24px;
+    white-space: pre-line;
+    max-width: 720px;
+}
+
+.headline em {
+    font-style: italic;
+    color: var(--gold);
+}
+
+.sub {
+    font-size: 1.15rem;
+    line-height: 1.8;
+    color: var(--text-secondary);
+    max-width: 560px;
+    white-space: pre-line;
+    margin-bottom: 40px;
+}
+
+.ctas {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+
+/* Trust Bar */
+.trustBar {
+    position: relative;
+    z-index: 1;
+    border-top: 1px solid var(--border-dark);
+    background: rgba(11, 17, 32, 0.5);
+    backdrop-filter: blur(8px);
+}
+
+.trustInner {
+    display: flex;
+    align-items: center;
+    gap: 48px;
+    padding: 32px 24px;
+}
+
+.trustLabel {
+    font-size: 0.7rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--text-muted);
+    white-space: nowrap;
+}
+
+.trustStats {
+    display: flex;
+    gap: 48px;
+    flex-wrap: wrap;
+}
+
+.stat {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.statValue {
+    font-family: var(--font-heading);
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--gold);
+}
+
+.statLabel {
+    font-size: 0.75rem;
+    color: var(--text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+}
+
+/* Scroll Hint */
+.scrollHint {
+    position: absolute;
+    bottom: 32px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1;
+}
+
+.scrollLine {
+    display: block;
+    width: 1px;
+    height: 48px;
+    background: linear-gradient(to bottom, var(--gold), transparent);
+    animation: scrollPulse 2s ease-in-out infinite;
+}
+
+@keyframes scrollPulse {
+
+    0%,
+    100% {
+        opacity: 0.3;
+        transform: scaleY(1);
+    }
+
+    50% {
+        opacity: 1;
+        transform: scaleY(1.2);
+    }
+}
+
+@media (max-width: 1024px) {
+    .headline {
+        font-size: 2.8rem;
+    }
+
+    .trustInner {
+        flex-direction: column;
+        gap: 20px;
+        align-items: flex-start;
+    }
+
+    .trustStats {
+        gap: 32px;
+    }
+}
+
+@media (max-width: 768px) {
+    .content {
+        padding: 120px 0 40px;
+    }
+
+    .headline {
+        font-size: 2rem;
+    }
+
+    .sub {
+        font-size: 1rem;
+    }
+
+    .trustStats {
+        gap: 24px;
+    }
+
+    .statValue {
+        font-size: 1.4rem;
+    }
+
+    .ctas {
+        flex-direction: column;
+    }
+
+    .ctas a {
+        text-align: center;
+    }
+}

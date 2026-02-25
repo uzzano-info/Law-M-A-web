@@ -1,0 +1,38 @@
+export const insights = [
+    {
+        id: 'navigating-cross-border-ma',
+        title: 'Navigating Cross-Border M&A in an Era of Heightened Regulatory Scrutiny',
+        category: 'M&A Analysis',
+        date: '2026-02-18',
+        author: 'James A. Sterling',
+        excerpt: 'As regulatory bodies worldwide tighten oversight of cross-border transactions, companies must adapt their M&A strategies to navigate increasing complexity in deal approvals and national security reviews.',
+        body: 'The global M&A landscape has undergone a significant transformation in recent years. Regulatory bodies across major jurisdictions — including the CFIUS in the United States, the European Commission, and various national security review bodies in Asia-Pacific — have expanded their scope of scrutiny.\n\nFor dealmakers, this means that early regulatory mapping has become not just advisable, but essential. Our practice recommends a three-phase approach: pre-deal regulatory assessment, proactive engagement with regulators during the deal process, and contingency planning for potential remedies or divestitures.\n\nKey considerations for 2026 include the expanded definition of "critical technology" under CFIUS, the EU\'s new Foreign Subsidies Regulation, and emerging national security frameworks in Southeast Asian markets.',
+    },
+    {
+        id: 'esg-governance-frameworks',
+        title: 'ESG Governance Frameworks: From Compliance Burden to Competitive Advantage',
+        category: 'Corporate Governance',
+        date: '2026-02-10',
+        author: 'Victoria L. Chen',
+        excerpt: 'Forward-thinking boards are discovering that robust ESG governance frameworks not only satisfy regulatory requirements but can drive measurable competitive advantages in talent acquisition, investor relations, and market positioning.',
+        body: 'The narrative around Environmental, Social, and Governance (ESG) has matured significantly. What was once viewed primarily as a compliance obligation is increasingly recognized as a strategic differentiator.\n\nOur analysis of S&P 500 companies reveals that those with comprehensive ESG governance frameworks experienced 23% lower cost of capital and 18% higher employee retention rates compared to peers without such frameworks.\n\nFor boards looking to elevate their ESG posture, we recommend starting with a materiality assessment to identify the ESG factors most relevant to the company\'s industry and stakeholders, followed by integration into existing risk management frameworks.',
+    },
+    {
+        id: 'ai-regulatory-landscape',
+        title: 'The AI Regulatory Landscape: What Corporate Counsel Must Know in 2026',
+        category: 'Regulatory Update',
+        date: '2026-01-28',
+        author: 'Victoria L. Chen',
+        excerpt: 'With the EU AI Act now in effect and similar legislation advancing in the US and Asia, corporate legal teams must rapidly build expertise in AI governance to protect their organizations.',
+        body: 'The regulatory environment for artificial intelligence has reached a critical inflection point. The EU AI Act, which entered its enforcement phase in early 2026, establishes a risk-based framework that categorizes AI systems and imposes corresponding obligations.\n\nFor corporate counsel, the immediate priorities include: conducting an AI system inventory across the organization, classifying each system under the applicable regulatory framework, and establishing governance structures for ongoing compliance.\n\nNotably, the extraterritorial reach of the EU AI Act means that any organization whose AI systems affect EU residents must comply, regardless of where the organization is headquartered.',
+    },
+    {
+        id: 'litigation-risk-mitigation',
+        title: 'Proactive Litigation Risk Mitigation: A Framework for the C-Suite',
+        category: 'Risk Management',
+        date: '2026-01-15',
+        author: 'Michael T. Reeves',
+        excerpt: 'The most effective litigation strategy is prevention. We present a comprehensive framework for C-suite executives to identify, assess, and neutralize litigation risks before they materialize.',
+        body: 'In our experience advising corporate leadership teams, we have observed that the most costly litigation outcomes almost always trace back to identifiable warning signs that were overlooked or inadequately addressed.\n\nOur Proactive Litigation Risk Framework consists of four pillars: (1) systematic risk identification through regular legal audits, (2) quantitative risk assessment using probabilistic modeling, (3) preemptive mitigation through policy reform and training, and (4) rapid response protocols for emerging threats.\n\nCompanies that implement this framework typically see a 40-60% reduction in litigation-related costs over a three-year period.',
+    },
+]
